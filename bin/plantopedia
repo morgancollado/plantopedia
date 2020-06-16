@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/plantopedia'
+require_relative '../lib/environment'
 
-Plantopedia::CLI.new.call
+Plantopedia::CLI.new
