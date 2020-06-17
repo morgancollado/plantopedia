@@ -1,22 +1,22 @@
 require 'pry'
 require 'httparty'
 
-class ApiManager
+class Plantopedia::ApiManager
 
     TREFLE_TOKEN = 'TlNXU3pPRXFKTllkQ2I0L0M3TmgwQT09'
     TREFLE_API_URL = 'https://trefle.io/api'
 
-    def get_all(search, page = 1)
+    def self.get_all(search)
         puts "Querying..."
         
-        HTTParty.get("#{TREFLE_API_URL}/plants", query: { q: search, token: TREFLE_TOKEN, page_size: 40, page: page })
+        res = HTTParty.get("#{TREFLE_API_URL}/plants", query: { q: search, token: TREFLE_TOKEN })
+        Plantopedia::Plants.mass_create_from_api(res)
       end
      
 
-      def get_one(plant_id)
+      def self.get_one(plant_id)
+        puts "Querying..."
         HTTParty.get("#{TREFLE_API_URL}/plants/#{plant_id}", query: { token: TREFLE_TOKEN })
       end
 
 end 
-
-binding.pry

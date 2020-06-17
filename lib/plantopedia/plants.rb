@@ -27,12 +27,12 @@ class Plantopedia::Plants
         :forst_free_days_minimum, 
         :growth_habit, 
         :protein_potential, 
-        :planting_density_per_acre_maximum
+        :planting_density_per_acre_maximum,
         :root_depth_minimum_inches, 
         :adapted_to_medium_textured_soils, 
         :drought_tolerance, 
         :salinity_tolerance,
-        :fertility_requirement
+        :fertility_requirement,
         :foliage_color,
         :nitrogen_fixation, 
         :commercial_availbility, 
@@ -62,23 +62,42 @@ class Plantopedia::Plants
         :moisture_use, 
         :adapted_to_coarse_textured_soils,
         :propagated_by_corms,
-        :temperature_minimum_deg_f
+        :temperature_minimum_deg_f,
         :seed_spread_rate
     ) 
 
-
-
-
     @@all = []
 
-    def initiatlize(name, id, url)
-        @name, @id, @url = name, id, url
+
+
+    def self.all
+        @@all
+    end 
+
+    def self.mass_create_from_api(plantarr)
+        plantarr.each do |planthash|
+            self.new(planthash["common_name"],planthash["id"],planthash["link"])
+        end 
+    end 
+
+    def initialize(common_name, id)
+        @common_name, @id = common_name, id
         save
     end 
+
+    def full_details
+        <<-DESC
+
+
+
+
+
+        DESC
 
     def save 
         @@all << self
     end 
+    binding.pry
 
 
 
