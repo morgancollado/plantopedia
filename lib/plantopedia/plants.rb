@@ -99,7 +99,7 @@ class Plantopedia::Plants
     end 
 
     def full_details
-        <<-DESC
+       puts  <<-DESC
 common name: #{self.common_name}    family common name: #{self.family_common_name}   scientific name: #{self.scientific_name}
 fruit conspicuous: #{self.fruit_conspicuous}    fall conspicuous: #{self.fall_conspicuous}  flower conspicuous: #{self.flower_conspicuous}  
 propagated by container: #{self.propagated_by_container} propagated by sprigs: #{self.propagated_by_sprigs}   propagated by cuttings: #{self.propagated_by_cuttings}
@@ -138,4 +138,3 @@ native status: #{self.native_status}    growth habit: #{self.growth_habit}
 
 
 end 
-binding.pry

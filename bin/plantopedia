@@ -2,5 +2,5 @@
 
 require_relative '../lib/environment'
 
-cli = Plantopedia::CLI.new
+cli = Plantopedia::CLI.new.start
 
