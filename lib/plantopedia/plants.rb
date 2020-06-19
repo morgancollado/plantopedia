@@ -1,6 +1,23 @@
 class Plantopedia::Plants
 
     attr_accessor( :common_name, 
+        :name,
+        :id,
+        :class,
+        :cultivars,
+        :division,
+        :duration,
+        :growth,
+        :flower,
+        :foliage,
+        :products,
+        :fruit_or_seed,
+        :propagation,
+        :seed,
+        :soils_adaptation,
+        :specifications,
+        :sub_species,
+        :varieties,
         :family_common_name, 
         :scientific_name, 
         :fruit_conspicuous, 
@@ -72,7 +89,7 @@ class Plantopedia::Plants
 
     def self.mass_create_from_api(plantarr)
         plantarr.each do |planthash|
-            self.new(planthash["common_name"],planthash["id"],planthash["link"])
+            self.new(planthash["common_name"],planthash["id"])
         end 
     end 
 
@@ -90,7 +107,7 @@ propagated_by_tubers: #{self.propagated_by_tubers}  propagated_by_corms: #{self.
 propagated by bulbs: #{self.propagated_by_bulbs}    active_growth_period: #{self.active_growth_period}
 
 precipitation minimum: #{self.precipitation_minimum}    precipitation maximum: #{self.precipitation_maximum}    moisture use: #{self.moisture_use}
-nitrogen fixation: #{self.nitrogen_fixation}       fire resistance: #{self.fire_resistance}    fire tolerance: #{fire_toleranc}    
+nitrogen fixation: #{self.nitrogen_fixation}       fire resistance: #{self.fire_resistance}    fire tolerance: #{fire_tolerance}    
 lifespan: #{self.lifespan}      height at base age max in ft: #{self.height_at_base_age_max_ft}     height mature in ft: #{self.height_mature_ft}
 pH minimum: #{self.ph_minimum}      pH maximum: #{self.ph_maximum}      growth_rate: #{self.growth_rate}    bloom_period: #{self.bloom_period}
 
@@ -111,12 +128,14 @@ seedling vigor: #{self.seedling_vigor}
 native status: #{self.native_status}    growth habit: #{self.growth_habit} 
     
     DESC
+    end 
     
     def save 
         @@all << self
     end 
-    binding.pry
+    
 
 
 
 end 
+binding.pry
