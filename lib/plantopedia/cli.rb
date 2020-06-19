@@ -1,3 +1,5 @@
+require 'pry'
+
 class Plantopedia::CLI
 
     def start 
@@ -8,8 +10,14 @@ class Plantopedia::CLI
         
 
 
-    def get_plants(plant)
-        Plantopedia::ApiManager.get_all(plant)
+    def get_plants
+        input = gets.strip.downcase
+        commands = ["exit"]
+        return input.downcase if commands.include?(input.downcase)
+        Plantopedia::ApiManager.get_all(input)
+        Plantopedia::Plants.all.each_with_index do |plant, index|
+            puts "#{index + 1}. #{plant.common_name}"
+        end 
     end 
 
     def welcome
@@ -19,8 +27,13 @@ class Plantopedia::CLI
     end 
 
     def main_loop
-        puts "in the main loop heck yeah"
-
+        #loop do 
+            get_plants
+         #   case input
+          #  when "exit"
+           #     break 
+            #end 
+        #else 
     end 
 
     def instructions
@@ -32,3 +45,5 @@ Please enter the name of the plant you wish to search or type 'exit' to exit.
 
     end 
 end
+
+#binding.pry
