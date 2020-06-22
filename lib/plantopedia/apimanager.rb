@@ -24,13 +24,13 @@ class Plantopedia::ApiManager
           if key == "class"  || key == "division" || key == "family" || key == "genus" || key == "main_species" || key == "fruit_or_seed" || key == "growth" || key == "products" || key == "propagation" || key == "seed" || key == "soils_adaptation" || key == "specifications" || key == "order"
             value.each do |key, value| 
             plant.send(("#{key}="),value) if plant.respond_to?("#{key}") 
-            puts "in the if #{key}, #{value}"
-            puts plant.respond_to?("#{key}") 
+            #puts "in the if #{key}, #{value}"
+            #puts plant.respond_to?("#{key}") 
             end 
             else 
              plant.send(("#{key}="),value) if plant.respond_to?("#{key}")
-             puts "in the else #{key}, #{value}"
-             puts plant.respond_to?("#{key}") 
+             #puts "in the else #{key}, #{value}"
+             #puts plant.respond_to?("#{key}") 
            end 
           end 
         end 

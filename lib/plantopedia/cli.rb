@@ -4,7 +4,6 @@ class Plantopedia::CLI
 
     def start 
         welcome
-        instructions
         main_loop
     end 
         
@@ -22,8 +21,8 @@ class Plantopedia::CLI
         puts "Which plant would you like to learn more about?"
         input = gets.strip.downcase
         if input.to_i.between?(1, Plantopedia::Plants.all.length)
-            input.to_i - 1
-            plant_obj = Plantopedia::Plants.all[input]
+            index = input.to_i - 1
+            plant_obj = Plantopedia::Plants.all[index]
             Plantopedia::ApiManager.get_one(plant_obj)
             puts plant_obj.full_details
             puts "press any key to continue"
@@ -41,20 +40,24 @@ class Plantopedia::CLI
     end 
 
     def main_loop
-        #loop do 
+        loop do 
+            instructions
             get_plants
             get_and_display_specific_plant
             puts "Would you like to run another search? y/n"
             input = gets.strip.downcase
-         #  case input
-          #  when "n"
-                break
-           # when "y"
-            #    Plantopedia::Plants.all.clear
-             #   get_plants
-              #  get_and_display_specific_plant
-           #end 
-        #end 
+           case input
+            when "n"
+               break
+            when "y"
+                Plantopedia::Plants.all.clear
+                instructions
+                get_plants
+                get_and_display_specific_plant
+                puts "Would you like to run another search? y/n"
+                input = gets.strip.downcase
+           end 
+        end 
     end 
 
     def instructions
