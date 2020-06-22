@@ -86,6 +86,10 @@ class Plantopedia::Plants
     def self.all
         @@all
     end 
+    
+    def self.clear
+        @@all.clear
+    end 
 
     def self.mass_create_from_api(plantarr)
         plantarr.each do |planthash|
