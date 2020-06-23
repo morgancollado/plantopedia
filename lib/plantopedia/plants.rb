@@ -118,11 +118,11 @@ foliage:#{self.foliage}
 
 products: #{self.products}
 
-fruit_or_seed: #{self.fruit_or_seed}       
+fruit or seed: #{self.fruit_or_seed}       
 
 seed: #{self.seed}      
 
-soils_adaptation: #{self.soils_adaptation}
+soils adaptation: #{self.soils_adaptation}
 
 specifications: #{self.specifications}
     

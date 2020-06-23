@@ -51,11 +51,7 @@ class Plantopedia::CLI
                break
             when "y"
                 Plantopedia::Plants.all.clear
-                instructions
-                get_plants
-                get_and_display_specific_plant
-                puts "Would you like to run another search? y/n"
-                input = gets.strip.downcase
+                next
            end 
         end 
     end 
