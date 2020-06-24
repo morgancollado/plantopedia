@@ -13,7 +13,10 @@ class Plantopedia::CLI
         input = gets.strip.downcase
         Plantopedia::ApiManager.get_all(input)
         Plantopedia::Plants.all.each_with_index do |plant, index|
-            puts "#{index + 1}. #{plant.common_name}"
+            if plant.common_name.nil? || plant.common_name.empty?
+                puts  "#{index + 1}. #{plant.scientific_name}"
+            else puts "#{index + 1}. #{plant.common_name}" 
+            end 
         end 
     end 
 
@@ -25,7 +28,7 @@ class Plantopedia::CLI
             plant_obj = Plantopedia::Plants.all[index]
             Plantopedia::ApiManager.get_one(plant_obj)
             puts plant_obj.full_details
-            puts "press any key to continue"
+            puts "press enter/return to continue"
             gets
        else 
             puts "Please make a valid selection from the numbers above."
@@ -60,6 +63,7 @@ class Plantopedia::CLI
 
        puts <<-INST
 Please enter the name of the plant you wish to search.
+Note: Some plant data my be incomplete. 
 
         INST
 

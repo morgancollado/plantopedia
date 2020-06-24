@@ -18,6 +18,7 @@ class Plantopedia::Plants
         :specifications,
         :sub_species,
         :varieties,
+        :bare_root,
         :family_common_name, 
         :scientific_name, 
         :fruit_conspicuous, 
@@ -93,12 +94,12 @@ class Plantopedia::Plants
 
     def self.mass_create_from_api(plantarr)
         plantarr.each do |planthash|
-            self.new(planthash["common_name"],planthash["id"])
+            self.new(planthash["common_name"],planthash["id"], planthash["scientific_name"])
         end 
     end 
 
-    def initialize(common_name, id)
-        @common_name, @id = common_name, id
+    def initialize(common_name, id, scientific_name)
+        @common_name, @id, @scientific_name = common_name, id, scientific_name
         save
     end 
 
@@ -106,28 +107,34 @@ class Plantopedia::Plants
        puts  <<-DESC
 common name: #{self.common_name}    family common name: #{self.family_common_name}   scientific name: #{self.scientific_name}
 
-propagation: #{self.propagation}        
+# propagation: #{self.propagation.each {|key, value| puts "#{key} is #{value}"}}        
 
-duration: #{self.duration}      
+# duration: #{self.duration}      
 
-growth: #{self.growth}
+# growth: #{self.growth}
 
-flower: #{self.flower}     
+# flower: #{self.flower}     
 
-foliage:#{self.foliage}     
+# foliage:#{self.foliage}     
 
-products: #{self.products}
+# products: #{self.products}
 
-fruit or seed: #{self.fruit_or_seed}       
+# fruit or seed: #{self.fruit_or_seed}       
 
-seed: #{self.seed}      
+# seed: #{self.seed}      
 
-soils adaptation: #{self.soils_adaptation}
+# soils adaptation: #{self.soils_adaptation}
 
-specifications: #{self.specifications}
+# specifications: #{self.specifications}
     
     DESC
-    end 
+
+    #puts "propagation: #{self.propagation.each{|value| self.}}"
+    puts  self.flower.each {|key, value| puts "flower : #{key} is #{value}"}
+    end
+
+     
+    
     
     def save 
         @@all << self
