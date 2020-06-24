@@ -104,43 +104,58 @@ class Plantopedia::Plants
     end 
 
     def full_details
-       puts  <<-DESC
-common name: #{self.common_name}    family common name: #{self.family_common_name}   scientific name: #{self.scientific_name}
-
-# propagation: #{self.propagation.each {|key, value| puts "#{key} is #{value}"}}        
-
-# duration: #{self.duration}      
-
-# growth: #{self.growth}
-
-# flower: #{self.flower}     
-
-# foliage:#{self.foliage}     
-
-# products: #{self.products}
-
-# fruit or seed: #{self.fruit_or_seed}       
-
-# seed: #{self.seed}      
-
-# soils adaptation: #{self.soils_adaptation}
-
-# specifications: #{self.specifications}
-    
-    DESC
-
-    #puts "propagation: #{self.propagation.each{|value| self.}}"
-    puts  self.flower.each {|key, value| puts "flower : #{key} is #{value}"}
+        puts "---------------------------------------------------"
+        puts  "common name: #{self.common_name}    family common name: #{self.family_common_name}   scientific name: #{self.scientific_name}"
+        puts "---------------------------------------------------"
+        puts "Propagation Data"
+        self.propagation.each {|key, value| puts "\n#{key} propagation is #{value}\n" unless value.nil?} 
+        puts "---------------------------------------------------"    
+        puts  "duration: #{self.duration}"   
+        puts "---------------------------------------------------"   
+        puts "Growth Data" 
+        self.growth.each do |key, value| 
+            if key == "planting_density_maximum" || key == "planting_density_minimum"
+                puts "\n#{key} is #{value["acre"]} acre(s)\n" unless value["acre"].nil?
+            elsif key == "precipitation_maximum" || key == "precipitation_minimum" || key == "root_depth_minimum"
+                puts "\n#{key} is #{value["inches"]} inches\n" unless value["inches"].nil?
+            elsif key == "temperature_minimum"
+                puts "\n#{key} is #{value["deg_f"]} fahrenheit\n" unless value["def_f"].nil?
+            else
+            puts "\n#{key} is #{value}\n" unless value.nil?
+            end 
+        end 
+        puts "---------------------------------------------------"   
+        puts "Flower Data"
+        self.flower.each {|key, value| puts "\nflower #{key} is #{value}\n" unless value.nil?}
+        puts "---------------------------------------------------"
+        puts "Foliage Data"
+        self.foliage.each {|key, value| puts "\nfoliage #{key} is #{value}\n"unless value.nil?}   
+        puts "---------------------------------------------------"   
+        puts "Products Data"
+        self.products.each {|key, value| puts "\n#{key} product is #{value}\n" unless value.nil?}  
+        puts "---------------------------------------------------"   
+        puts "Fruit and Seed Data"
+        self.fruit_or_seed.each {|key, value| puts "\nfruit or seed #{key} is #{value}\n" unless value.nil?}
+        puts "---------------------------------------------------"   
+        puts "Seed Data" 
+        self.seed.each {|key, value| puts "\n#{key} is #{value}\n" unless value.nil?}
+        puts "---------------------------------------------------"   
+        puts "Soils Adaptation Data"
+        self.soils_adaptation.each {|key, value| puts "\n#{key} soil adaptation is #{value}\n" unless value.nil?}
+        puts "---------------------------------------------------"   
+        puts "Specification Data"
+        self.specifications.each do |key, value| 
+            if key == "mature_height" || key == "max_height_at_base_age"
+                puts "\n#{key} is #{value["ft"]} feet\n" unless value["ft"].nil?
+        else 
+            puts "\n#{key} is #{value}\n" unless value.nil? 
+        end 
+       end 
+        puts "---------------------------------------------------"        
     end
-
-     
-    
     
     def save 
         @@all << self
     end 
-    
-
-
 
 end 
