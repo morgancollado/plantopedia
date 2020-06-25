@@ -1,3 +1,4 @@
+require 'colorize'
 require 'dotenv/load'
 require 'pry'
 require 'httparty'
