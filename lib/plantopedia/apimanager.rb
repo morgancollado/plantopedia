@@ -3,7 +3,7 @@ require 'httparty'
 
 class Plantopedia::ApiManager
 
-    TREFLE_TOKEN = 'TlNXU3pPRXFKTllkQ2I0L0M3TmgwQT09'
+    TREFLE_TOKEN = ENV["KEY"]
     TREFLE_API_URL = 'https://trefle.io/api'
 
     def self.get_all(search)

@@ -6,7 +6,9 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    colorize (0.8.1)
     diff-lcs (1.3)
+    dotenv (2.7.5)
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -33,6 +35,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  colorize
+  dotenv
   httparty
   plantopedia!
   rake (~> 12.0)

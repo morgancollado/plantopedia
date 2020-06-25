@@ -140,7 +140,7 @@ class Plantopedia::Plants
         puts "Seed Data" 
         self.seed.each {|key, value| puts "\n#{key} is #{value}\n" unless value.nil?}
         puts "---------------------------------------------------"   
-        puts "Soils Adaptation Data"
+        puts "Soil Adaptation Data"
         self.soils_adaptation.each {|key, value| puts "\n#{key} soil adaptation is #{value}\n" unless value.nil?}
         puts "---------------------------------------------------"   
         puts "Specification Data"
