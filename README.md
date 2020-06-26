@@ -1,8 +1,6 @@
 # Plantopedia
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/plantopedia`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to Plantopedia! This gem allows you to search the Trefle API for plant data to help you better take care of your plants. 
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This is a command line app that only runs from the terminal. You search the database by common name or scientific name and the app populates a list of matching plants. You then select the one you want to learn more about by inputing the numnber associated with the plant. You can repeat this search as many times as you like. 
 
 ## Development
 
