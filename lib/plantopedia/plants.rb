@@ -107,48 +107,49 @@ class Plantopedia::Plants
         puts "---------------------------------------------------"
         puts  "common name: #{self.common_name}    family common name: #{self.family_common_name}   scientific name: #{self.scientific_name}"
         puts "---------------------------------------------------"
-        puts "Propagation Data"
-        self.propagation.each {|key, value| puts "\n#{key} propagation is #{value}\n" unless value.nil?} 
+        puts "Propagation Data".colorize(:red)
+        self.propagation.each {|key, value| puts "\n#{key} propagation is #{value}\n".colorize(:light_yellow) unless value.nil?} 
         puts "---------------------------------------------------"    
-        puts  "duration: #{self.duration}"   
+        puts  "Duration Data".colorize(:red)
+        puts "\n#{self.duration}".colorize(:light_yellow)   
         puts "---------------------------------------------------"   
-        puts "Growth Data" 
+        puts "Growth Data".colorize(:red) 
         self.growth.each do |key, value| 
             if key == "planting_density_maximum" || key == "planting_density_minimum"
-                puts "\n#{key} is #{value["acre"]} acre(s)\n" unless value["acre"].nil?
+                puts "\n#{key} is #{value["acre"]} acre(s)\n".colorize(:light_yellow) unless value["acre"].nil?
             elsif key == "precipitation_maximum" || key == "precipitation_minimum" || key == "root_depth_minimum"
-                puts "\n#{key} is #{value["inches"]} inches\n" unless value["inches"].nil?
+                puts "\n#{key} is #{value["inches"]} inches\n".colorize(:light_yellow) unless value["inches"].nil?
             elsif key == "temperature_minimum"
-                puts "\n#{key} is #{value["deg_f"]} fahrenheit\n" unless value["def_f"].nil?
+                puts "\n#{key} is #{value["deg_f"]} fahrenheit\n".colorize(:light_yellow) unless value["def_f"].nil?
             else
-            puts "\n#{key} is #{value}\n" unless value.nil?
+            puts "\n#{key} is #{value}\n".colorize(:light_yellow) unless value.nil?
             end 
         end 
         puts "---------------------------------------------------"   
-        puts "Flower Data"
-        self.flower.each {|key, value| puts "\nflower #{key} is #{value}\n" unless value.nil?}
+        puts "Flower Data".colorize(:red)
+        self.flower.each {|key, value| puts "\nflower #{key} is #{value}\n".colorize(:light_yellow) unless value.nil?}
         puts "---------------------------------------------------"
-        puts "Foliage Data"
-        self.foliage.each {|key, value| puts "\nfoliage #{key} is #{value}\n"unless value.nil?}   
+        puts "Foliage Data".colorize(:red)
+        self.foliage.each {|key, value| puts "\nfoliage #{key} is #{value}\n".colorize(:light_yellow) unless value.nil?}   
         puts "---------------------------------------------------"   
-        puts "Products Data"
-        self.products.each {|key, value| puts "\n#{key} product is #{value}\n" unless value.nil?}  
+        puts "Products Data".colorize(:red)
+        self.products.each {|key, value| puts "\n#{key} product is #{value}\n".colorize(:light_yellow) unless value.nil?}  
         puts "---------------------------------------------------"   
-        puts "Fruit and Seed Data"
-        self.fruit_or_seed.each {|key, value| puts "\nfruit or seed #{key} is #{value}\n" unless value.nil?}
+        puts "Fruit and Seed Data".colorize(:red)
+        self.fruit_or_seed.each {|key, value| puts "\nfruit or seed #{key} is #{value}\n".colorize(:light_yellow) unless value.nil?}
         puts "---------------------------------------------------"   
-        puts "Seed Data" 
-        self.seed.each {|key, value| puts "\n#{key} is #{value}\n" unless value.nil?}
+        puts "Seed Data".colorize(:red)
+        self.seed.each {|key, value| puts "\n#{key} is #{value}\n".colorize(:light_yellow) unless value.nil?}
         puts "---------------------------------------------------"   
-        puts "Soil Adaptation Data"
-        self.soils_adaptation.each {|key, value| puts "\n#{key} soil adaptation is #{value}\n" unless value.nil?}
+        puts "Soil Adaptation Data".colorize(:yellow)
+        self.soils_adaptation.each {|key, value| puts "\n#{key} soil adaptation is #{value}\n".colorize(:light_yellow) unless value.nil?}
         puts "---------------------------------------------------"   
-        puts "Specification Data"
+        puts "Specification Data".colorize(:red)
         self.specifications.each do |key, value| 
             if key == "mature_height" || key == "max_height_at_base_age"
-                puts "\n#{key} is #{value["ft"]} feet\n" unless value["ft"].nil?
+                puts "\n#{key} is #{value["ft"]} feet\n".colorize(:light_yellow) unless value["ft"].nil?
         else 
-            puts "\n#{key} is #{value}\n" unless value.nil? 
+            puts "\n#{key} is #{value}\n".colorize(:light_yellow) unless value.nil?
         end 
        end 
         puts "---------------------------------------------------"        
@@ -159,3 +160,4 @@ class Plantopedia::Plants
     end 
 
 end 
+

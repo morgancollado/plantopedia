@@ -4,7 +4,6 @@ class Plantopedia::CLI
 
     def start 
         welcome
-        
         main_loop
     end 
         
@@ -15,15 +14,15 @@ class Plantopedia::CLI
         Plantopedia::ApiManager.get_all(input)
         Plantopedia::Plants.all.each_with_index do |plant, index|
             if plant.common_name.nil? || plant.common_name.empty?
-                puts  "#{index + 1}. #{plant.scientific_name}".colorize(:red)
-            else puts "#{index + 1}. #{plant.common_name}".colorize(:red)
+                puts  "#{index + 1}. #{plant.scientific_name}".colorize(:yellow)
+            else puts "#{index + 1}. #{plant.common_name}".colorize(:green)
             end 
         end 
     end 
 
     def get_and_display_specific_plant
        loop do 
-        puts "Which plant would you like to learn more about? Enter a number or exit to start a new search.".colorize(:cyan)
+        puts "\n Which plant would you like to learn more about? Enter a number or exit to start a new search.".colorize(:light_cyan)
         input = gets.strip.downcase
         # binding.pry
         case input
@@ -62,7 +61,7 @@ class Plantopedia::CLI
             instructions
             get_plants
             get_and_display_specific_plant
-            puts "Would you like to run another search? Please enter y/n".colorize(:magenta)
+            puts "Would you like to run another search? Please enter y/n".colorize(:light_red)
             input = gets.strip.downcase
            case input
             when "n"
@@ -76,8 +75,9 @@ class Plantopedia::CLI
 
     def instructions
 
-        puts "Please enter the name of the plant you wish to search.".colorize(:light_yellow)
-        puts "Note: Some plant data my be incomplete.".colorize(:light_yellow)
+        puts "Please enter the name of the plant you wish to search.".colorize(:light_red)
+        puts "Note: Some plant data my be incomplete.".colorize(:light_cyan)
+        
 
         
 

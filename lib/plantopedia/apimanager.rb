@@ -12,7 +12,7 @@ class Plantopedia::ApiManager
         res = HTTParty.get("#{TREFLE_API_URL}/plants", query: { q: search, token: TREFLE_TOKEN })
         Plantopedia::Plants.mass_create_from_api(res)
       end
-     
+    
 
       def self.get_one(plant)
         puts "Querying..."
@@ -34,6 +34,6 @@ class Plantopedia::ApiManager
            end 
           end 
         end 
-
+        
 end 
 
